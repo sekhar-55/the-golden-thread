@@ -47,16 +47,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        // Custom legal-tech colors
+        maroon: "hsl(var(--maroon))",
+        gold: "hsl(var(--gold))",
+        cream: "hsl(var(--cream))",
+        slate: "hsl(var(--slate))",
+        "gold-glow": "hsl(var(--gold-glow))",
+      },
+      fontFamily: {
+        display: ["Playfair Display", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
+        script: ["Great Vibes", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +66,43 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        sparkle: {
+          "0%, 100%": { opacity: "1", transform: "scale(1)" },
+          "50%": { opacity: "0.5", transform: "scale(0.8)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 3s linear infinite",
+        float: "float 3s ease-in-out infinite",
+        sparkle: "sparkle 2s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "legal-paper": `
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 31px,
+            hsl(var(--gold) / 0.1) 31px,
+            hsl(var(--gold) / 0.1) 32px
+          )
+        `,
       },
     },
   },

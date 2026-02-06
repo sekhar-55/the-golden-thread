@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface ObjectionStampProps {
   message: string;
@@ -6,13 +6,33 @@ interface ObjectionStampProps {
 
 const ObjectionStamp = ({ message }: ObjectionStampProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-show on mobile, hide after 3 seconds
+  useEffect(() => {
+    if (isMobile) {
+      setIsVisible(true);
+      const timer = setTimeout(() => setIsVisible(false), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
 
   return (
     <div 
       className="absolute top-4 right-4 cursor-pointer"
-      onMouseEnter={() => setIsVisible(true)}
-      onMouseLeave={() => setIsVisible(false)}
-      onClick={() => setIsVisible(!isVisible)}
+      onMouseEnter={() => !isMobile && setIsVisible(true)}
+      onMouseLeave={() => !isMobile && setIsVisible(false)}
     >
       {/* Trigger icon */}
       <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary hover:bg-primary/30 transition-colors">

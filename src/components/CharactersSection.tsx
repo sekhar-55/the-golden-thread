@@ -12,7 +12,9 @@ const CharactersSection = () => {
   useEffect(() => {
     if (!sectionRef.current) return;
 
+    // Set initial state for cards
     const cards = sectionRef.current.querySelectorAll('.character-card');
+    gsap.set(cards, { opacity: 1, y: 0, rotateY: 0 });
     
     cards.forEach((card, index) => {
       gsap.from(card, {
@@ -23,8 +25,8 @@ const CharactersSection = () => {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: card,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse'
+          start: 'top 90%',
+          once: true
         }
       });
     });
@@ -73,41 +75,39 @@ const CharactersSection = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-32 px-4 overflow-hidden">
+    <section ref={sectionRef} className="relative py-12 sm:py-20 md:py-28 lg:py-32 px-4 sm:px-6 md:px-8">
       {/* Section header with gavel */}
       <GavelDrop>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-primary text-center mb-4">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-center mb-3 sm:mb-4">
           The Parties Involved
         </h2>
       </GavelDrop>
       
-      <p className="font-script text-2xl text-secondary text-center mb-16">
+      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2">
         Meet the key witnesses to this love story
       </p>
 
       {/* Character cards grid */}
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 max-w-6xl mx-auto">
-        <div className="character-card">
+      <div className="flex flex-col items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:flex-row lg:gap-12 max-w-6xl mx-auto">
+        <div className="character-card w-full sm:w-auto flex justify-center">
           <CharacterCard {...engineer} />
         </div>
-        
-        {/* VS indicator */}
-        <div className="hidden lg:flex flex-col items-center">
-          <div className="w-16 h-16 rounded-full bg-gold flex items-center justify-center text-2xl font-bold text-slate shadow-lg shadow-gold/50">
+        {/* VS indicator - always visible */}
+        <div className="hidden sm:flex sm:flex-col items-center">
+          <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gold flex items-center justify-center text-lg sm:text-2xl font-bold text-slate shadow-lg shadow-gold/50">
             &
           </div>
         </div>
-
-        <div className="character-card">
+        <div className="character-card w-full sm:w-auto flex justify-center">
           <CharacterCard {...advocate} />
         </div>
       </div>
 
       {/* Union card below */}
-      <div className="mt-16 flex justify-center">
-        <div className="character-card relative">
+      <div className="mt-8 sm:mt-12 md:mt-16 flex justify-center">
+        <div className="character-card relative w-full sm:w-auto flex justify-center">
           {/* Decorative hearts */}
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl animate-bounce">💕</div>
+          <div className="absolute -top-5 sm:-top-8 left-1/2 -translate-x-1/2 text-2xl sm:text-4xl animate-bounce">💕</div>
           <CharacterCard {...union} />
         </div>
       </div>

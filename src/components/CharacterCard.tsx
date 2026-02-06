@@ -20,7 +20,7 @@ const CharacterCard = ({ title, emoji, role, stats, accent, description }: Chara
   const accentStyles = {
     tech: {
       border: 'border-blue-400/50',
-      bg: 'bg-gradient-to-br from-slate-900 to-blue-900',
+      bg: 'bg-gradient-to-br from-slate to-blue-900',
       glow: 'shadow-blue-500/30',
       statBar: 'bg-blue-500',
       icon: '💻'
@@ -48,16 +48,16 @@ const CharacterCard = ({ title, emoji, role, stats, accent, description }: Chara
       ref={elementRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`tilt-card relative w-72 md:w-80 p-6 rounded-2xl ${style.bg} ${style.border} border-2 shadow-2xl ${style.glow} cursor-pointer transition-all duration-300`}
+      className={`tilt-card relative w-56 sm:w-64 md:w-72 lg:w-80 p-4 sm:p-6 rounded-2xl ${style.bg} ${style.border} border-2 shadow-2xl ${style.glow} cursor-pointer transition-all duration-300`}
       style={{ transformStyle: 'preserve-3d' }}
     >
       {/* Decorative corner */}
-      <div className="absolute top-2 right-2 text-2xl opacity-50">{style.icon}</div>
+      <div className="absolute top-2 right-2 text-lg sm:text-xl md:text-2xl opacity-50">{style.icon}</div>
       
       {/* Avatar section */}
-      <div className="text-center mb-6" style={{ transform: 'translateZ(40px)' }}>
+      <div className="text-center mb-4 sm:mb-6" style={{ transform: 'translateZ(40px)' }}>
         <div className="relative inline-block">
-          <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-5xl border-2 border-white/20 shadow-lg">
+          <div className="w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-3xl sm:text-4xl md:text-5xl border-2 border-white/20 shadow-lg">
             {emoji}
           </div>
           {/* Glow ring */}
@@ -66,9 +66,9 @@ const CharacterCard = ({ title, emoji, role, stats, accent, description }: Chara
       </div>
 
       {/* Name and role */}
-      <div className="text-center mb-6" style={{ transform: 'translateZ(30px)' }}>
-        <h3 className="font-display text-2xl font-bold text-white mb-1">{title}</h3>
-        <p className="font-mono text-sm text-white/70">{role}</p>
+      <div className="text-center mb-4 sm:mb-6" style={{ transform: 'translateZ(30px)' }}>
+        <h3 className="font-display text-lg sm:text-xl md:text-2xl font-bold text-white mb-1">{title}</h3>
+        <p className="font-mono text-xs sm:text-sm text-white/70">{role}</p>
       </div>
 
       {/* Stats */}
@@ -79,7 +79,7 @@ const CharacterCard = ({ title, emoji, role, stats, accent, description }: Chara
               <span className="font-mono">{stat.name}</span>
               <span className="font-mono">{stat.value}%</span>
             </div>
-            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-2 bg-white/10 rounded-full overflow-visible">
               <div
                 className={`h-full ${style.statBar} rounded-full transition-all duration-1000`}
                 style={{ width: `${stat.value}%` }}

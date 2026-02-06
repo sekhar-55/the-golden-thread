@@ -53,7 +53,7 @@ const SealedEnvelope = ({ onOpen }: SealedEnvelopeProps) => {
     <div className="envelope-backdrop fixed inset-0 z-50 flex items-center justify-center bg-slate cursor-pointer"
          onClick={handleClick}>
       {/* Subtle ambient particles */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-visible">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
@@ -70,11 +70,11 @@ const SealedEnvelope = ({ onOpen }: SealedEnvelopeProps) => {
 
       <div className="envelope-container envelope-float relative">
         {/* Main envelope body */}
-        <div className="relative w-80 h-56 md:w-96 md:h-64">
+        <div className="relative w-64 h-48 sm:w-72 sm:h-56 md:w-96 md:h-64">
           {/* Envelope back */}
           <div className="absolute inset-0 bg-gradient-to-br from-amber-100 to-amber-200 rounded-lg shadow-2xl border-2 border-gold/30">
             {/* Paper texture lines */}
-            <div className="absolute inset-4 opacity-10">
+            <div className="absolute inset-2 sm:inset-3 md:inset-4 opacity-10">
               {[...Array(8)].map((_, i) => (
                 <div key={i} className="border-b border-slate/30 mb-4" />
               ))}
@@ -118,16 +118,16 @@ const SealedEnvelope = ({ onOpen }: SealedEnvelopeProps) => {
           </div>
 
           {/* Click instruction */}
-          <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-gold/80 text-sm font-display animate-pulse whitespace-nowrap">
+          <div className="absolute -bottom-10 sm:-bottom-12 left-1/2 -translate-x-1/2 text-gold/80 text-xs sm:text-sm font-display animate-pulse whitespace-nowrap px-2">
             Click to open the sealed decree...
           </div>
         </div>
 
         {/* Decorative corner flourishes */}
-        <div className="absolute -top-8 -left-8 text-gold/40 text-4xl font-script">✦</div>
-        <div className="absolute -top-8 -right-8 text-gold/40 text-4xl font-script">✦</div>
-        <div className="absolute -bottom-4 -left-8 text-gold/40 text-4xl font-script">✦</div>
-        <div className="absolute -bottom-4 -right-8 text-gold/40 text-4xl font-script">✦</div>
+        <div className="absolute -top-4 sm:-top-8 -left-4 sm:-left-8 text-gold/40 text-2xl sm:text-4xl font-script">✦</div>
+        <div className="absolute -top-4 sm:-top-8 -right-4 sm:-right-8 text-gold/40 text-2xl sm:text-4xl font-script">✦</div>
+        <div className="absolute -bottom-2 sm:-bottom-4 -left-4 sm:-left-8 text-gold/40 text-2xl sm:text-4xl font-script">✦</div>
+        <div className="absolute -bottom-2 sm:-bottom-4 -right-4 sm:-right-8 text-gold/40 text-2xl sm:text-4xl font-script">✦</div>
       </div>
     </div>
   );

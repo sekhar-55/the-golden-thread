@@ -1,12 +1,61 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import SealedEnvelope from '@/components/SealedEnvelope';
+import GoldenThread from '@/components/GoldenThread';
+import HeroSection from '@/components/HeroSection';
+import CharactersSection from '@/components/CharactersSection';
+import NarrativeSection from '@/components/NarrativeSection';
+import HeartReactor from '@/components/HeartReactor';
+import VerdictSection from '@/components/VerdictSection';
+import PrenupFooter from '@/components/PrenupFooter';
+import { useCursorHeartTrail } from '@/hooks/useCursorHeartTrail';
 
 const Index = () => {
+  const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
+  const [isCelebrating, setIsCelebrating] = useState(false);
+
+  // Enable cursor heart trail after envelope opens
+  useCursorHeartTrail(isEnvelopeOpen && !isCelebrating);
+
+  const handleEnvelopeOpen = () => {
+    setIsEnvelopeOpen(true);
+  };
+
+  const handleCelebrate = () => {
+    setIsCelebrating(true);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      {/* Sealed Envelope (Initial View) */}
+      {!isEnvelopeOpen && (
+        <SealedEnvelope onOpen={handleEnvelopeOpen} />
+      )}
+
+      {/* Main Content (Revealed after envelope opens) */}
+      {isEnvelopeOpen && (
+        <>
+          {/* Golden thread running through the page */}
+          <GoldenThread />
+
+          {/* Heart reactor - floating hearts */}
+          <HeartReactor />
+
+          {/* Hero Section */}
+          <HeroSection />
+
+          {/* Characters Section */}
+          <CharactersSection />
+
+          {/* Narrative / Case File Section */}
+          <NarrativeSection />
+
+          {/* Verdict Section (The Proposal) */}
+          <VerdictSection onCelebrate={handleCelebrate} />
+
+          {/* Prenup Footer */}
+          {!isCelebrating && <PrenupFooter />}
+        </>
+      )}
     </div>
   );
 };

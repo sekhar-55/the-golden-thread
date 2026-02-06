@@ -70,18 +70,18 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center">
+  <section ref={heroRef} className="relative min-h-screen flex items-center justify-center">
       {/* Background layer with parallax */}
-      <div className="hero-bg absolute inset-0 bg-legal-paper">
+  <div className="hero-bg absolute inset-0 bg-legal-paper">
         {/* Ornate border pattern */}
-        <div className="absolute inset-2 sm:inset-6 md:inset-8 border-2 sm:border-4 border-double border-gold/30 rounded-lg" />
-        <div className="absolute inset-4 sm:inset-8 md:inset-12 border border-gold/20 rounded-lg" />
+  <div className="absolute left-0 top-0 right-0 bottom-0 sm:inset-6 md:inset-8 border-2 sm:border-4 border-double border-gold/30 rounded-lg" />
+  <div className="absolute left-0 top-0 right-0 bottom-0 sm:inset-8 md:inset-12 border border-gold/20 rounded-lg" />
         
         {/* Corner decorations */}
-        <div className="absolute top-4 sm:top-8 md:top-16 left-4 sm:left-8 md:left-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script">❧</div>
-        <div className="absolute top-4 sm:top-8 md:top-16 right-4 sm:right-8 md:right-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script transform scale-x-[-1]">❧</div>
-        <div className="absolute bottom-4 sm:bottom-8 md:bottom-16 left-4 sm:left-8 md:left-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script transform scale-y-[-1]">❧</div>
-        <div className="absolute bottom-4 sm:bottom-8 md:bottom-16 right-4 sm:right-8 md:right-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script transform scale-[-1]">❧</div>
+  <div className="absolute top-0 sm:top-8 md:top-16 left-0 sm:left-8 md:left-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script max-w-full">❧</div>
+  <div className="absolute top-0 sm:top-8 md:top-16 right-0 sm:right-8 md:right-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script transform scale-x-[-1] max-w-full">❧</div>
+  <div className="absolute bottom-0 sm:bottom-8 md:bottom-16 left-0 sm:left-8 md:left-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script transform scale-y-[-1] max-w-full">❧</div>
+  <div className="absolute bottom-0 sm:bottom-8 md:bottom-16 right-0 sm:right-8 md:right-16 text-3xl sm:text-4xl md:text-6xl text-gold/30 font-script transform scale-[-1] max-w-full">❧</div>
       </div>
 
       {/* Content */}

@@ -151,7 +151,8 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
     "Too slow!",
     "Give up already! 💕",
     "Resistance is futile!",
-    "Just say yes! 💍"
+    "Just say yes! 💍",
+    "Access Forbidden by the Heart!"
   ];
 
   return (
@@ -171,7 +172,7 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
             </div>
 
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2">
-              THE FINAL DECREE
+              The Domestic Treaty (v2.0)
             </h2>
             
             <div className="h-px w-24 sm:w-32 mx-auto bg-gold my-4 sm:my-6" />
@@ -182,7 +183,7 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
             </p>
 
             <p className="font-script text-2xl sm:text-3xl md:text-4xl text-primary mb-8 sm:mb-12">
-              "Will you marry me?"
+              "Will you renew this contract of love and companionship by agreeing to be my life partner forever?"
             </p>
 
             {/* Buttons */}
@@ -190,9 +191,9 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
               {/* Yes Button */}
               <button
                 onClick={triggerCelebration}
-                className="relative px-6 sm:px-12 py-2 sm:py-4 bg-gradient-to-r from-secondary via-gold-glow to-secondary text-secondary-foreground font-display text-base sm:text-lg md:text-xl font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-secondary z-10 whitespace-nowrap"
+                className="relative px-6 sm:px-12 py-2 sm:py-4 bg-gradient-to-r from-secondary via-gold-glow to-secondary text-secondary-foreground font-display text-base sm:text-lg md:text-xl font-bold rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-secondary z-10 whitespace-nowrap min-h-[48px]"
               >
-                <span className="relative z-10">I Concur 💍</span>
+                <span className="relative z-10">Yes 💍</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-secondary via-gold-glow to-secondary rounded-lg animate-shimmer opacity-50" 
                      style={{ backgroundSize: '200% 100%' }} />
               </button>
@@ -202,7 +203,7 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
                 ref={noButtonRef}
                 onMouseEnter={handleMouseEnterNo}
                 onTouchStart={handleTouchNo}
-                className="px-4 sm:px-8 py-2 sm:py-3 bg-muted text-muted-foreground font-display text-base sm:text-lg rounded-lg border border-border hover:bg-muted/80 transition-all duration-100 min-h-[44px] min-w-[44px] flex items-center justify-center whitespace-nowrap"
+                className="px-4 sm:px-8 py-2 sm:py-3 bg-muted text-muted-foreground font-display text-base sm:text-lg rounded-lg border border-border hover:bg-muted/80 transition-all duration-100 min-h-[48px] min-w-[44px] flex items-center justify-center whitespace-nowrap"
                 style={{
                   transform: `translate(${noButtonPosition.x}px, ${noButtonPosition.y}px)`,
                   transition: 'transform 0.15s ease-out'
@@ -234,7 +235,7 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
             </h2>
             
             <p className="font-script text-xl sm:text-3xl md:text-5xl text-primary-foreground mb-6 sm:mb-8">
-              Marriage Approved!
+              Life Sentence of Love: No Parole!
             </p>
 
             <div className="flex items-center justify-center gap-1 sm:gap-2 text-gold">
@@ -248,10 +249,6 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
                 </span>
               ))}
             </div>
-
-            <p className="mt-8 sm:mt-12 font-display text-base sm:text-lg md:text-xl text-muted-foreground">
-              See you at Tirupati! 🛕
-            </p>
           </div>
         </div>
       )}

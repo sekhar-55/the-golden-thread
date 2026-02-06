@@ -1,12 +1,30 @@
 const PrenupFooter = () => {
-  const terms = [
-    { clause: "§1.1", text: "The Engineer agrees to never prioritize debugging over date nights (critical fixes excluded)." },
-    { clause: "§1.2", text: "The Advocate agrees to never use legal jargon to win household arguments (unless absolutely necessary)." },
-    { clause: "§2.1", text: "Chai shall be served with love, minimum twice daily, with the good biscuits." },
-    { clause: "§2.2", text: "Both parties commit to unlimited hugs with no prior notice required." },
-    { clause: "§3.1", text: "Movie night selections shall alternate, with veto power limited to one use per month." },
-    { clause: "§3.2", text: "All travel destinations must be mutually agreed upon, with adventure quotient ≥ 7/10." },
-  ];
+const terms = [
+  { 
+    clause: "§1.1", 
+    text: "The Husband agrees that no screen, project, or work-call is more important than 'Our Time.' When the sun sets, the focus shifts entirely to her." 
+  },
+  { 
+    clause: "§1.2", 
+    text: "The Wife agrees to leave her courtroom brilliance at the office. In this house, disagreements are settled with a hug rather than a closing argument." 
+  },
+  { 
+    clause: "§2.1", 
+    text: "The Foodie Protection Act: Because a hungry Advocate is a dangerous Advocate, the Husband shall maintain a 'Secret Stash' of her favorite treats at all times. Happiness, after all, is a full stomach and a shared dessert." 
+  },
+  { 
+    clause: "§2.2", 
+    text: "The 'Open Arms' Policy: Hugs are mandatory, unlimited, and require no prior notice. If one of us looks tired, the other must provide a 30-second recharge cuddle." 
+  },
+  { 
+    clause: "§3.1", 
+    text: "The Cinematic Compromise: We alternate movie picks. No matter how bad the movie is, the snuggling is non-negotiable and must last until the credits roll." 
+  },
+  { 
+    clause: "§3.2", 
+    text: "The Explorer’s Oath: Every vacation must be an adventure. Whether it’s a mountain peak or a new street food stall, we see the world hand-in-hand." 
+  },
+];
 
   return (
     <footer className="relative py-12 sm:py-16 px-3 sm:px-4 bg-gradient-to-t from-slate to-slate/95 text-primary-foreground">

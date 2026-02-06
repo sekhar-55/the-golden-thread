@@ -105,7 +105,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="hero-subtitle font-script text-xl sm:text-3xl md:text-4xl text-secondary mb-6 sm:mb-8 tracking-[2px]">
-          A Matter of the Heart & Logic
+          Love Written in Law, Engineered in Heartbeats.
         </p>
 
         {/* Decorative line */}
@@ -117,8 +117,8 @@ const HeroSection = () => {
 
         {/* Case description */}
         <p className="font-display text-sm sm:text-lg md:text-xl text-muted-foreground italic max-w-2xl mx-auto px-2 sm:px-0 leading-relaxed">
-          "In the honorable court of destiny, we present the case for an eternal union 
-          between two souls, bound by love and the sacred traditions of Tirupati."
+          "In the honorable court of our home, the bond remains unshakeable, the code bug-free, and the love overruling all objections. we present the case for an eternal union 
+          between two souls, bound by love and the sacred traditions of Hinduism"
         </p>
 
         {/* Scroll indicator */}

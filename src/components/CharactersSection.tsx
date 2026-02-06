@@ -40,24 +40,24 @@ const CharactersSection = () => {
     emoji: '👨‍💻',
     role: 'The Engineer',
     stats: [
-      { name: 'Logic & Structure', value: 95 },
-      { name: 'Debug Skills', value: 92 },
-      { name: 'Coffee Dependency', value: 100 },
-      { name: 'Love Quotient', value: 99 }
+      { name: 'Building our Dreams', value: 98 },
+      { name: 'The "Yes, Dear"', value: 92 },
+      { name: 'Hugs and cuddles Dependency', value: 100 },
+      { name: 'Love for You', value: 100 }
     ],
     accent: 'tech' as const,
-    description: '"I promise to debug your sadness and compile our happiness."'
+    description: '"I may not always have the right words, but I promise to always build a life where you feel safe, loved, and happy every single day."'
   };
 
   const advocate = {
     title: 'Player Two',
     emoji: '👩‍⚖️',
-    role: 'The Advocate',
+    role: 'The Advocate (My Queen)',
     stats: [
-      { name: 'Grace & Poise', value: 100 },
-      { name: 'Winning Arguments', value: 98 },
-      { name: 'Legal Expertise', value: 96 },
-      { name: 'Love Quotient', value: 99 }
+      { name: 'Beauty & Grace', value: 100 },
+      { name: 'Winning Every Heart', value: 100 },
+      { name: 'Love for me', value: 100 },
+      { name: 'Talkative and Foodie', value: 100 }
     ],
     accent: 'legal' as const,
     description: '"I object to any future without you in it."'
@@ -69,12 +69,12 @@ const CharactersSection = () => {
     role: 'A Perfect Merger',
     stats: [
       { name: 'Compatibility', value: 100 },
-      { name: 'Adventure Score', value: 95 },
-      { name: 'Happiness Index', value: 100 },
-      { name: 'Forever Rating', value: 100 }
+      { name: 'Traveling & Fun', value: 95 },
+      { name: 'Daily Laughter', value: 100 },
+      { name: 'Growing Old Together', value: 100 }
     ],
     accent: 'union' as const,
-    description: '"Two hearts, one verdict: Together forever."'
+    description: '"Two hearts, one verdict: No objections—just us, forever."'
   };
 
   return (
@@ -87,7 +87,7 @@ const CharactersSection = () => {
       </GavelDrop>
       
       <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2 tracking-[2px]">
-        Meet the key witnesses to this love story
+        Meet the key players in this love story
       </p>
 
       {/* Character cards grid */}

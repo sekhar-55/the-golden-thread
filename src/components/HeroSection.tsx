@@ -104,8 +104,8 @@ const HeroSection = () => {
         </h1>
 
         {/* Subtitle */}
-        <p className="hero-subtitle font-script text-xl sm:text-3xl md:text-4xl text-secondary mb-6 sm:mb-8">
-          A Matter of the Heart vs Logic
+        <p className="hero-subtitle font-script text-xl sm:text-3xl md:text-4xl text-secondary mb-6 sm:mb-8 tracking-[2px]">
+          A Matter of the Heart & Logic
         </p>
 
         {/* Decorative line */}

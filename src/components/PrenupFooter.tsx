@@ -19,7 +19,7 @@ const PrenupFooter = () => {
           <h3 className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-gold mb-2">
             THE PRENUP
           </h3>
-          <p className="font-script text-lg sm:text-xl text-muted-foreground">
+          <p className="font-script text-lg sm:text-xl text-muted-foreground tracking-[2px]">
             Terms & Conditions of Love
           </p>
           <div className="h-px w-16 sm:w-24 mx-auto bg-gold/50 mt-3 sm:mt-4" />
@@ -49,7 +49,7 @@ const PrenupFooter = () => {
           <div className="text-center">
             <div className="font-script text-lg sm:text-2xl text-gold mb-1">The Engineer</div>
             <div className="h-px w-24 sm:w-32 bg-gold/50" />
-            <p className="font-mono text-xs text-muted-foreground mt-1">👨‍💻 Signature</p>
+            <p className="font-mono text-xs text-muted-foreground mt-1">👨‍💻 Thammineni Rajasekhar</p>
           </div>
           
           <span className="text-xl sm:text-2xl">💕</span>
@@ -57,14 +57,14 @@ const PrenupFooter = () => {
           <div className="text-center">
             <div className="font-script text-lg sm:text-2xl text-gold mb-1">The Advocate</div>
             <div className="h-px w-24 sm:w-32 bg-gold/50" />
-            <p className="font-mono text-xs text-muted-foreground mt-1">👩‍⚖️ Signature</p>
+            <p className="font-mono text-xs text-muted-foreground mt-1">👩‍⚖️ Kataru Lakshmi</p>
           </div>
         </div>
 
         {/* Footer note */}
         <div className="text-center px-2">
           <p className="font-mono text-xs text-muted-foreground/70 leading-relaxed">
-            Case No. 1402-2026 • Filed in the Court of Love • Tirupati, Andhra Pradesh
+            Case No. 1402-2026 • Filed in the Court of Love • Anantapur, Andhra Pradesh
           </p>
           <p className="font-display text-xs sm:text-sm text-muted-foreground mt-2">
             Made with 💕 and a little bit of code

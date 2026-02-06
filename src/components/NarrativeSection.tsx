@@ -108,7 +108,7 @@ const NarrativeSection = () => {
         </h2>
       </GavelDrop>
       
-      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2">
+      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2 tracking-[2px]">
         Documented evidence of eternal love
       </p>
 

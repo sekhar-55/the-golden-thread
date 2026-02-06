@@ -86,7 +86,7 @@ const CharactersSection = () => {
         </h2>
       </GavelDrop>
       
-      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2">
+      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2 tracking-[2px]">
         Meet the key witnesses to this love story
       </p>
 

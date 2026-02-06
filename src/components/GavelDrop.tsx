@@ -12,45 +12,76 @@ const GavelDrop = ({ children }: GavelDropProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const gavelRef = useRef<HTMLDivElement>(null);
   const shockwaveRef = useRef<HTMLDivElement>(null);
-  const hasAnimatedRef = useRef(false);
+  // Remove hasAnimatedRef for repeatable animation
 
   useEffect(() => {
     if (!containerRef.current || !gavelRef.current) return;
 
+    // Animation function
+    const animateGavel = () => {
+      if (!gavelRef.current || !shockwaveRef.current) return;
+      const tl = gsap.timeline();
+      tl.fromTo(gavelRef.current, 
+        { rotation: -45, y: -50, opacity: 0 },
+        { rotation: 0, y: 0, opacity: 1, duration: 0.4, ease: 'power2.in' }
+      )
+      .fromTo(shockwaveRef.current,
+        { scale: 0, opacity: 1 },
+        { scale: 2.5, opacity: 0, duration: 0.4, ease: 'power2.out' },
+        '-=0.1'
+      )
+      .to(gavelRef.current, {
+        rotation: -8,
+        duration: 0.1,
+        ease: 'power1.out'
+      })
+      .to(gavelRef.current, {
+        rotation: 0,
+        duration: 0.2,
+        ease: 'elastic.out(1, 0.5)'
+      });
+    };
+
+    // Use GSAP ScrollTrigger for desktop and most browsers
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
-      start: 'top 90%',
-      onEnter: () => {
-        if (hasAnimatedRef.current) return;
-        hasAnimatedRef.current = true;
-        const tl = gsap.timeline();
-
-        // Gavel drops
-        tl.fromTo(gavelRef.current, 
-          { rotation: -45, y: -50, opacity: 0 },
-          { rotation: 0, y: 0, opacity: 1, duration: 0.4, ease: 'power2.in' }
-        )
-        // Shockwave on impact
-        .fromTo(shockwaveRef.current,
-          { scale: 0, opacity: 1 },
-          { scale: 2.5, opacity: 0, duration: 0.4, ease: 'power2.out' },
-          '-=0.1'
-        )
-        // Slight bounce
-        .to(gavelRef.current, {
-          rotation: -8,
-          duration: 0.1,
-          ease: 'power1.out'
-        })
-        .to(gavelRef.current, {
-          rotation: 0,
-          duration: 0.2,
-          ease: 'elastic.out(1, 0.5)'
-        });
-      }
+      start: 'top 70%',
+      onEnter: animateGavel,
+      onLeaveBack: () => {
+        // Reset gavel/shockwave so animation can play again
+        if (gavelRef.current) gsap.set(gavelRef.current, { rotation: -45, y: -50, opacity: 0 });
+        if (shockwaveRef.current) gsap.set(shockwaveRef.current, { scale: 0, opacity: 1 });
+      },
+      // mobile markers for debugging: markers: true
     });
 
-    return () => trigger.kill();
+    // Fallback for mobile browsers where ScrollTrigger may not fire
+    let observer: IntersectionObserver | null = null;
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.intersectionRatio >= 0.7) {
+              animateGavel();
+            } else {
+              // Reset when leaving viewport so it can play again
+              if (gavelRef.current) gsap.set(gavelRef.current, { rotation: -45, y: -50, opacity: 0 });
+              if (shockwaveRef.current) gsap.set(shockwaveRef.current, { scale: 0, opacity: 1 });
+            }
+          });
+        },
+        {
+          root: null,
+          threshold: 0.7 // 70% visible
+        }
+      );
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      trigger.kill();
+      if (observer) observer.disconnect();
+    };
   }, []);
 
   return (

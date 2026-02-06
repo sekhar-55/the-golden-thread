@@ -24,44 +24,49 @@ const HeroSection = () => {
     });
 
     // Set initial states
-    gsap.set([titleRef.current, '.hero-subtitle', '.hero-case-number'], { opacity: 1, y: 0, scale: 1 });
-    
-    // Animate title on scroll
-    gsap.from(titleRef.current, {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top 90%',
-        once: true
-      }
-    });
+     gsap.set([titleRef.current, '.hero-subtitle', '.hero-case-number'], { opacity: 1, y: 0, scale: 1, clearProps: 'all' });
 
-    gsap.from('.hero-subtitle', {
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top 90%',
-        once: true
-      }
-    });
+    // Animate title on scroll (only on sm+)
+    if (window.innerWidth >= 640) {
+      gsap.from(titleRef.current, {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top 90%',
+          once: true
+        },
+        clearProps: 'all'
+      });
 
-    gsap.from('.hero-case-number', {
-      scale: 0.8,
-      opacity: 0,
-      duration: 0.6,
-      ease: 'back.out(1.7)',
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: 'top 90%',
-        once: true
-      }
-    });
+      gsap.from('.hero-subtitle', {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top 90%',
+          once: true
+        },
+        clearProps: 'all'
+      });
+
+      gsap.from('.hero-case-number', {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top 90%',
+          once: true
+        },
+        clearProps: 'all'
+      });
+    }
   }, []);
 
   return (

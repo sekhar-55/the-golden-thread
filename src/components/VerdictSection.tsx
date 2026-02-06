@@ -13,6 +13,7 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 });
   const [escapeCount, setEscapeCount] = useState(0);
   const [showCelebration, setShowCelebration] = useState(false);
+  const [showCard, setShowCard] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const noButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -96,25 +97,53 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
     }
   }, [showCelebration]);
 
-  // Animate the main section on scroll
+  // Animate/show the main card only when it enters the viewport
   useEffect(() => {
     if (!containerRef.current) return;
     const card = containerRef.current.querySelector('.neumorphic');
+    if (!card) return;
+
+    // Hide card initially
+    gsap.set(card, { opacity: 0, y: 60 });
+
+    let observer: IntersectionObserver | null = null;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setShowCard(true);
+              observer && observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(card);
+    } else {
+      // fallback: show immediately
+      setShowCard(true);
+    }
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
+
+  // Animate in when showCard becomes true
+  useEffect(() => {
+    if (!showCard) return;
+    if (!containerRef.current) return;
+    const card = containerRef.current.querySelector('.neumorphic');
     if (card) {
-      gsap.set(card, { opacity: 1, y: 0 });
-      gsap.from(card, {
-        y: 100,
-        opacity: 0,
-        duration: 1,
+      gsap.to(card, {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
         ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 90%',
-          once: true
-        }
       });
     }
-  }, []);
+  }, [showCard]);
 
   const escapeMessages = [
     "Nice try! 😏",
@@ -126,7 +155,7 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
   ];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen py-16 sm:py-24 md:py-32 px-3 sm:px-4 flex items-center justify-center overflow-hidden">
+  <section ref={containerRef} className="relative min-h-screen py-16 sm:py-24 md:py-32 px-3 sm:px-4 flex items-center justify-center overflow-x-hidden overflow-y-auto">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-background" />
       
@@ -134,7 +163,8 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           {/* Document header */}
           <GavelDrop children={''}></GavelDrop>
-          <div className="neumorphic bg-card rounded-xl p-4 sm:p-8 md:p-12 border border-gold/30">
+          <div className={`neumorphic bg-card rounded-xl p-4 sm:p-8 md:p-12 border border-gold/30 transition-opacity duration-700 ${showCard ? '' : 'pointer-events-none select-none'}`}
+            style={{ opacity: showCard ? undefined : 0 }}>
             {/* Seal */}
             <div className="w-16 sm:w-18 md:w-20 h-16 sm:h-18 md:h-20 mx-auto mb-4 sm:mb-6 rounded-full bg-primary flex items-center justify-center shadow-lg">
               <span className="text-2xl sm:text-3xl md:text-4xl">⚖️</span>

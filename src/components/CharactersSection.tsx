@@ -11,25 +11,28 @@ const CharactersSection = () => {
 
   useEffect(() => {
     if (!sectionRef.current) return;
-
-    // Set initial state for cards
     const cards = sectionRef.current.querySelectorAll('.character-card');
+
+    // Always set cards visible by default (fallback for mobile)
     gsap.set(cards, { opacity: 1, y: 0, rotateY: 0 });
-    
-    cards.forEach((card, index) => {
-      gsap.from(card, {
-        y: 100,
-        opacity: 0,
-        rotateY: index % 2 === 0 ? -30 : 30,
-        duration: 0.8,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 90%',
-          once: true
-        }
+
+    // Animate in on scroll for desktop, but cards remain visible if scrollTrigger fails
+    if (window.innerWidth >= 640) { // sm: breakpoint
+      cards.forEach((card, index) => {
+        gsap.from(card, {
+          y: 100,
+          opacity: 0,
+          rotateY: index % 2 === 0 ? -30 : 30,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 90%',
+            once: true
+          }
+        });
       });
-    });
+    }
   }, []);
 
   const engineer = {
@@ -93,7 +96,7 @@ const CharactersSection = () => {
           <CharacterCard {...engineer} />
         </div>
         {/* VS indicator - always visible */}
-        <div className="hidden sm:flex sm:flex-col items-center">
+        <div className="flex flex-col items-center my-2 sm:my-0">
           <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gold flex items-center justify-center text-lg sm:text-2xl font-bold text-slate shadow-lg shadow-gold/50">
             &
           </div>

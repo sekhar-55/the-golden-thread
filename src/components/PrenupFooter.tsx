@@ -1,30 +1,39 @@
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+
 const PrenupFooter = () => {
-const terms = [
-  { 
-    clause: "§1.1", 
-    text: "The Husband agrees that no screen, project, or work-call is more important than 'Our Time.' When the sun sets, the focus shifts entirely to her." 
-  },
-  { 
-    clause: "§1.2", 
-    text: "The Wife agrees to leave her courtroom brilliance at the office. In this house, disagreements are settled with a hug rather than a closing argument." 
-  },
-  { 
-    clause: "§2.1", 
-    text: "The Foodie Protection Act: Because a hungry Advocate is a dangerous Advocate, the Husband shall maintain a 'Secret Stash' of her favorite treats at all times. Happiness, after all, is a full stomach and a shared dessert." 
-  },
-  { 
-    clause: "§2.2", 
-    text: "The 'Open Arms' Policy: Hugs are mandatory, unlimited, and require no prior notice. If one of us looks tired, the other must provide a 30-second recharge cuddle." 
-  },
-  { 
-    clause: "§3.1", 
-    text: "The Cinematic Compromise: We alternate movie picks. No matter how bad the movie is, the snuggling is non-negotiable and must last until the credits roll." 
-  },
-  { 
-    clause: "§3.2", 
-    text: "The Explorer’s Oath: Every vacation must be an adventure. Whether it’s a mountain peak or a new street food stall, we see the world hand-in-hand." 
-  },
-];
+  const terms = [
+    { 
+      clause: "§1.1", 
+      text: "The Husband agrees that no screen, project, or work-call is more important than 'Our Time.' When the sun sets, the focus shifts entirely to her." 
+    },
+    { 
+      clause: "§1.2", 
+      text: "The Wife agrees to leave her courtroom brilliance at the office. In this house, disagreements are settled with a hug rather than a closing argument." 
+    },
+    { 
+      clause: "§2.1", 
+      text: "The Foodie Protection Act: Because a hungry Advocate is a dangerous Advocate, the Husband shall maintain a 'Secret Stash' of her favorite treats at all times. Happiness, after all, is a full stomach and a shared dessert." 
+    },
+    { 
+      clause: "§2.2", 
+      text: "The 'Open Arms' Policy: Hugs are mandatory, unlimited, and require no prior notice. If one of us looks tired, the other must provide a 30-second recharge cuddle." 
+    },
+    { 
+      clause: "§3.1", 
+      text: "The Cinematic Compromise: We alternate movie picks. No matter how bad the movie is, the snuggling is non-negotiable and must last until the credits roll." 
+    },
+    { 
+      clause: "§3.2", 
+      text: "The Explorer’s Oath: Every vacation must be an adventure. Whether it’s a mountain peak or a new street food stall, we see the world hand-in-hand." 
+    },
+  ];
 
   return (
     <footer className="relative py-12 sm:py-16 px-3 sm:px-4 bg-gradient-to-t from-slate to-slate/95 text-primary-foreground">
@@ -87,6 +96,30 @@ const terms = [
           <p className="font-display text-xs sm:text-sm text-muted-foreground mt-2">
             Made with 💕 and a little bit of code
           </p>
+          <Dialog>
+            <DialogTrigger className="font-mono text-[11px] text-gold/80 underline underline-offset-2 decoration-dotted mt-3 inline-flex items-center gap-1">
+              <span>Credits</span>
+            </DialogTrigger>
+            <DialogContent className="bg-background/95 border border-gold/30">
+              <DialogHeader>
+                <DialogTitle>Credits & Tools</DialogTitle>
+                <DialogDescription>
+                  A quick nod to the creative copilots helped behind this experience.
+                </DialogDescription>
+              </DialogHeader>
+              <ul className="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+                <li>
+                  Layout and starter visuals inspired by the Lovable App design flow.
+                </li>
+                <li>
+                  Component architecture and polish iterated with GitHub Copilot guidance.
+                </li>
+                <li>
+                  Story beats and poetic copy crafted alongside Google Gemini and Github Copilot.
+                </li>
+              </ul>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </footer>

@@ -48,13 +48,13 @@ const terms = [
           {terms.map((term, index) => (
             <div 
               key={index}
-              className="group p-3 sm:p-4 rounded-lg bg-background/5 border border-gold/10 hover:border-gold/30 transition-all duration-300"
+              className="p-3 sm:p-4 rounded-lg bg-background/10 border border-gold/20 shadow-inner"
             >
               <div className="flex gap-2 sm:gap-3">
-                <span className="font-mono text-xs text-gold/70 mt-0.5 flex-shrink-0">
+                <span className="font-mono text-xs text-gold mt-0.5 flex-shrink-0">
                   {term.clause}
                 </span>
-                <p className="font-display text-xs sm:text-sm text-muted-foreground group-hover:text-primary-foreground transition-colors">
+                <p className="font-display text-xs sm:text-sm text-primary-foreground">
                   {term.text}
                 </p>
               </div>
@@ -65,16 +65,16 @@ const terms = [
         {/* Signature section */}
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div className="text-center">
-            <div className="font-script text-lg sm:text-2xl text-gold mb-1">The Engineer</div>
-            <div className="h-px w-24 sm:w-32 bg-gold/50" />
+            <div className="font-script text-lg sm:text-2xl text-gold mb-1 tracking-[2px]">The Engineer</div>
+            <div className="h-px w-64 sm:w-62 bg-gold/50" />
             <p className="font-mono text-xs text-muted-foreground mt-1">👨‍💻 Thammineni Rajasekhar</p>
           </div>
           
           <span className="text-xl sm:text-2xl">💕</span>
           
           <div className="text-center">
-            <div className="font-script text-lg sm:text-2xl text-gold mb-1">The Advocate</div>
-            <div className="h-px w-24 sm:w-32 bg-gold/50" />
+            <div className="font-script text-lg sm:text-2xl text-gold mb-1 tracking-[2px]">The Advocate</div>
+            <div className="h-px w-64 sm:w-62 bg-gold/50" />
             <p className="font-mono text-xs text-muted-foreground mt-1">👩‍⚖️ Kataru Lakshmi</p>
           </div>
         </div>

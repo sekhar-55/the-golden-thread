@@ -38,12 +38,12 @@ const CharactersSection = () => {
   const engineer = {
     title: 'Player One',
     emoji: '👨‍💻',
-    role: 'The Engineer',
+    role: 'The Romantic Engineer',
     stats: [
-      { name: 'Building our Dreams', value: 98 },
-      { name: 'The "Yes, Dear"', value: 92 },
-      { name: 'Hugs and cuddles Dependency', value: 100 },
-      { name: 'Love for You', value: 100 }
+      { name: 'Surprise Date Builds', value: 98 },
+      { name: 'Midnight Debugs for Us', value: 94 },
+      { name: 'Warm Hug Delivery', value: 100 },
+      { name: 'Love for You', value: 101 }
     ],
     accent: 'tech' as const,
     description: '"I may not always have the right words, but I promise to always build a life where you feel safe, loved, and happy every single day."'
@@ -52,26 +52,26 @@ const CharactersSection = () => {
   const advocate = {
     title: 'Player Two',
     emoji: '👩‍⚖️',
-    role: 'The Advocate (My Queen)',
+    role: 'The Valentine Advocate',
     stats: [
-      { name: 'Beauty & Grace', value: 100 },
-      { name: 'Winning Every Heart', value: 100 },
-      { name: 'Love for me', value: 100 },
-      { name: 'Talkative and Foodie', value: 100 }
+      { name: 'Courtroom Swagger', value: 100 },
+      { name: 'Winning every Heart', value: 99 },
+      { name: 'Foodie Enthusiasm', value: 100 },
+      { name: 'Love for Me', value: 101 }
     ],
     accent: 'legal' as const,
     description: '"I object to any future without you in it."'
   };
 
   const union = {
-    title: 'The Union',
+    title: 'Our Valentine Merger',
     emoji: '💑',
-    role: 'A Perfect Merger',
+    role: 'Co-Counsels of Forever',
     stats: [
       { name: 'Compatibility', value: 100 },
-      { name: 'Traveling & Fun', value: 95 },
+      { name: 'Travel + Tastebuds', value: 97 },
       { name: 'Daily Laughter', value: 100 },
-      { name: 'Growing Old Together', value: 100 }
+      { name: 'Growing Wrinkly Together', value: 100 }
     ],
     accent: 'union' as const,
     description: '"Two hearts, one verdict: No objections—just us, forever."'
@@ -82,12 +82,12 @@ const CharactersSection = () => {
       {/* Section header with gavel */}
       <GavelDrop>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-center mb-3 sm:mb-4">
-          The Parties Involved
+          The Hearts in Session
         </h2>
       </GavelDrop>
       
       <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2 tracking-[2px]">
-        Meet the key players in this love story
+        Meet the forever co-counsels of cuddle court
       </p>
 
       {/* Character cards grid */}

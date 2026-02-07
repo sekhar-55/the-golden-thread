@@ -9,6 +9,14 @@ interface VerdictSectionProps {
   onCelebrate: () => void;
 }
 
+const lovePerks = [
+  {
+    title: 'Unlimited Hug Credits',
+    detail: 'Redeemable at any hour, especially after tough hearings or late-night deployments.',
+    icon: '🤗'
+  }
+];
+
 const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
   const [noButtonPosition, setNoButtonPosition] = useState({ x: 0, y: 0 });
   const [escapeCount, setEscapeCount] = useState(0);
@@ -163,7 +171,13 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
       {!showCelebration ? (
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           {/* Document header */}
-          <GavelDrop children={''}></GavelDrop>
+          <GavelDrop>
+            <div className="text-center mb-4 sm:mb-6">
+              <p className="font-script text-secondary text-xl sm:text-3xl tracking-[3px]">
+                Valentine&apos;s Final Motion
+              </p>
+            </div>
+          </GavelDrop>
           <div className={`neumorphic bg-card rounded-xl p-4 sm:p-8 md:p-12 border border-gold/30 transition-opacity duration-700 ${showCard ? '' : 'pointer-events-none select-none'}`}
             style={{ opacity: showCard ? undefined : 0 }}>
             {/* Seal */}
@@ -178,13 +192,33 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
             <div className="h-px w-24 sm:w-32 mx-auto bg-gold my-4 sm:my-6" />
 
             <p className="font-display text-base sm:text-xl md:text-2xl text-foreground mb-6 sm:mb-8 leading-relaxed">
-              In the matter of a <span className="text-secondary font-bold">Lifetime Partnership</span>,<br />
+              In the matter of a <span className="text-secondary font-bold">Lifetime valentine Partnership</span>,<br />
               this court seeks your verdict on the following motion:
             </p>
 
             <p className="font-script text-2xl sm:text-3xl md:text-4xl text-primary mb-8 sm:mb-12">
-              "Will you renew this contract of love and companionship by agreeing to be my life partner forever?"
+              "Will you be my forever Valentine and wake up beside me for every sunrise to come?"
             </p>
+
+            <p className="font-display text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto mb-8">
+              Signing bonus: reserved cuddle spots, unlimited shoulder naps, and priority boarding on every road trip adventure.
+            </p>
+
+            <div className="grid gap-3 sm:gap-4 sm:grid-cols-3 mb-8">
+              {lovePerks.map((perk) => (
+                <div key={perk.title} className="rounded-2xl border border-gold/20 bg-white/70 px-3 py-4 text-left flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl" aria-hidden="true">{perk.icon}</span>
+                    <p className="font-display text-sm sm:text-base text-primary">
+                      {perk.title}
+                    </p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    {perk.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
 
             {/* Buttons */}
             <div className="relative flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 min-h-[120px] px-2">
@@ -231,11 +265,11 @@ const VerdictSection = ({ onCelebrate }: VerdictSectionProps) => {
             </div>
 
             <h2 className="font-display text-2xl sm:text-4xl md:text-6xl font-bold text-gold mb-3 sm:mb-4 text-shadow-gold">
-              Objection Overruled!
+              Motion Granted, Valentine!
             </h2>
             
             <p className="font-script text-xl sm:text-3xl md:text-5xl text-primary-foreground mb-6 sm:mb-8">
-              Life Sentence of Love: No Parole!
+              Life sentence of love confirmed—parole replaced with rose deliveries.
             </p>
 
             <div className="flex items-center justify-center gap-1 sm:gap-2 text-gold">

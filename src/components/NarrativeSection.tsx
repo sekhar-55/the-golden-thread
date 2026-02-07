@@ -15,23 +15,29 @@ interface Exhibit {
 const exhibits: Exhibit[] = [
   {
     id: 'A',
-    title: 'How the Case Began',
-    content: 'It was written in the stars, coded in destiny, and filed in the court of fate. Two paths crossed at the intersection of logic and law, where a software engineer\'s algorithms met an advocate\'s eloquence. What started as chance became choice, and choice became commitment.',
-    icon: '📜'
+    title: 'Opening Statement of Fate',
+    content: 'It’s electric to think we once brushed past each other in the crowd, never knowing that "stranger" was actually the love of my life. Now, look at us: a lifetime of dancing through the kitchen, endless cuddles, and a joy so deep it feels like a dream. The evidence is undeniable: the stars had our names written together from the very beginning. You are my forever verdict',
+    icon: '💞'
   },
   {
     id: 'B',
-    title: 'Evidence of Compatibility',
-    content: 'Exhibit B presents irrefutable evidence: shared laughter that echoes through time, silent understandings that speak volumes, and a love that compiles without errors. The prosecution rests its case on the foundation of 1000 shared moments.',
-    icon: '🔍'
+    title: 'Traditions & Rituals',
+    content: 'From Friday food trails to Sunday slow dances, our rituals are precedents binding on all future arguments. Once invoked, love must be applied generously.',
+    icon: '🕯️'
   },
   {
     id: 'C',
-    title: 'Precedents of Love',
-    content: 'This court acknowledges the precedents: every sunrise witnessed together, every challenge overcome as one, every dream woven into a shared tapestry. These precedents establish beyond reasonable doubt that this union is destined.',
-    icon: '⚖️'
+    title: 'Valentine\'s Day Ruling',
+    content: 'Filed Feb 14, 2026: the engineer pleads guilty to loving you wildly and proposes a lifelong sentence of shared pillows, road trips, and handwritten notes.',
+    icon: '🌹'
   }
 ];
+
+const stampMessages: Record<string, string> = {
+  A: 'Sustained: Chemistry undeniable!',
+  B: 'Precedent: Rituals of love!',
+  C: 'Verdict: Valentine for life!'
+};
 
 const NarrativeSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -104,13 +110,21 @@ const NarrativeSection = () => {
       {/* Section header with gavel */}
       <GavelDrop>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-center mb-3 sm:mb-4">
-          The Case File
+          The Valentine Case File
         </h2>
       </GavelDrop>
       
-      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-10 sm:mb-16 px-2 tracking-[2px]">
+      <p className="font-script text-lg sm:text-2xl text-secondary text-center mb-4 sm:mb-8 px-2 tracking-[2px]">
         Documented evidence of eternal love
       </p>
+
+      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] sm:text-xs font-mono text-muted-foreground mb-8 sm:mb-12">
+        {['Exhibit Vault • Feb 14 Edition', 'Filed jointly under Rajasekhar × Lakshmi', 'Chain of custody: Heart → Heart'].map((chip) => (
+          <span key={chip} className="px-3 py-1 rounded-full border border-gold/30 bg-white/60 backdrop-blur">
+            {chip}
+          </span>
+        ))}
+      </div>
 
       {/* Exhibits */}
       <div className="max-w-4xl mx-auto space-y-8 sm:space-y-12 pb-10 sm:pb-20">
@@ -146,10 +160,6 @@ const NarrativeSection = () => {
                 </p>
               </div>
 
-              {/* Decorative stamp & Click indicator for mobile */}
-              <div className="absolute bottom-4 right-4 opacity-20 text-5xl pointer-events-none">
-                ✓
-              </div>
 
               {/* Mobile click indicator */}
               {isMobile && !visibleStamps.has(exhibit.id) && (
@@ -168,9 +178,7 @@ const NarrativeSection = () => {
                     <div className="bg-primary border-2 sm:border-4 border-primary px-2 sm:px-4 py-1 sm:py-2 rounded transform -rotate-3 shadow-2xl">
                       <div className="border border-sm:border-2 border-dashed border-primary-foreground/50 px-2 sm:px-3 py-0.5 sm:py-1">
                         <span className="font-mono text-xs text-primary-foreground uppercase tracking-wider whitespace-nowrap font-bold block">
-                          {exhibit.id === 'A' ? "Objection: Too much cuteness!" :
-                           exhibit.id === 'B' ? "Sustained: Love is evident!" :
-                           "Overruled: Forever approved!"}
+                          {stampMessages[exhibit.id] ?? 'Forever approved!'}
                         </span>
                       </div>
                     </div>

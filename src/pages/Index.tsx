@@ -4,6 +4,8 @@ import GoldenThread from '@/components/GoldenThread';
 import HeroSection from '@/components/HeroSection';
 import CharactersSection from '@/components/CharactersSection';
 import NarrativeSection from '@/components/NarrativeSection';
+import LoveTimeline from '@/components/LoveTimeline';
+import LovePromises from '@/components/LovePromises';
 import HeartReactor from '@/components/HeartReactor';
 import VerdictSection from '@/components/VerdictSection';
 import PrenupFooter from '@/components/PrenupFooter';
@@ -48,6 +50,10 @@ const Index = () => {
 
           {/* Narrative / Case File Section */}
           <NarrativeSection />
+
+          {/* Timeline, promises & soundtrack */}
+          <LoveTimeline />
+          <LovePromises />
 
           {/* Verdict Section (The Proposal) */}
           <VerdictSection onCelebrate={handleCelebrate} />

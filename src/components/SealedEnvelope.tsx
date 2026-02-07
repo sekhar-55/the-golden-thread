@@ -81,6 +81,14 @@ const SealedEnvelope = ({ onOpen }: SealedEnvelopeProps) => {
             </div>
           </div>
 
+          {/* Valentine ribbon */}
+          <div className="absolute -top-6 sm:-top-8 right-0 sm:right-2 flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-rose-50/90 border border-rose-200/70 shadow-md backdrop-blur-sm z-20">
+            <span className="text-base sm:text-lg" aria-hidden="true">🌹</span>
+            <span className="font-script text-xs sm:text-sm text-rose-700 tracking-[2px]">
+              From your Valentine
+            </span>
+          </div>
+
           {/* Envelope flap */}
           <div className="envelope-flap absolute -top-1 left-0 right-0 h-28 origin-bottom"
                style={{ transformStyle: 'preserve-3d' }}>
@@ -91,13 +99,6 @@ const SealedEnvelope = ({ onOpen }: SealedEnvelopeProps) => {
                  }}>
               {/* Decorative border on flap */}
               <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-            {/* Valentine ribbon */}
-            <div className="absolute -top-6 sm:-top-8 right-0 sm:right-2 flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-rose-50/90 border border-rose-200/70 shadow-md backdrop-blur-sm z-20">
-              <span className="text-base sm:text-lg" aria-hidden="true">🌹</span>
-              <span className="font-script text-xs sm:text-sm text-rose-700 tracking-wide">
-                From your Valentine
-              </span>
-            </div>
             </div>
           </div>
 

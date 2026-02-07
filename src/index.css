@@ -84,10 +84,19 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    overflow-x: hidden;
   }
 }
 
